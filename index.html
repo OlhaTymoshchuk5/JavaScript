@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!--Author: Olha Tymoshchuk
+    Submition date: 29.10.19
+    Purpose: create an Excel table that will do SUM-->
+<html>
+<head runat="server">
+    <title>Spreadsheet</title>
+    <h1>Spreadsheet Project Olha Tymoshchuk</h1>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="js/createAndClear.js"></script>
+    <script src="js/formulas.js"></script>
+    <script src="js/click.js"></script>
+</head>
+<body onload="createSpreadsheet();">
+    <div>
+        <input type="text" id="value" value="" onkeypress="clikcEnter(this);"  />
+        <input id="btnClear" type="button" value="Clear" onclick="clearSpreadsheet();" />
+        <br /><br />
+        <div id="SpreadsheetTable">
+        </div>
+    </div>
+</body>
+<footer>
+    <p>&copy; Copyright  2019 <a href="mailto:o_tymoshchuk@fanshaweonline.ca">o_tymoshchuk@fanshaweonline.ca</a></p>
+</footer>
+</html>
