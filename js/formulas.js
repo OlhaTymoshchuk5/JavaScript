@@ -5,7 +5,6 @@ var tblArray = [];
 var GLOBALROW;
 var GLOBALCOLLUMN;
 
-//Unchangable number of rows and colums to render the table
 const TBLROWS = 20;
 const TBLCOLUMNS = 10;
 //create a 2D array 
@@ -38,7 +37,6 @@ for (var i = 0; i < TBLROWS; i++){
 for (var j = 0; j < TBLCOLUMNS; j++){
     // check to see if table element is a formula
     if (tblArray[i][j].indexOf("=SUM") !== -1){
-        // apply the formula for cell at row/column i/j
         calculateCell(i, j);           
     }
 }
@@ -47,7 +45,6 @@ for (var j = 0; j < TBLCOLUMNS; j++){
 
 //function calculate
 function calculateCell(row, column){
-    // begin by getting the formula parts
     var tokenArray = getFormula(tblArray[row][column]);
 
 
@@ -68,14 +65,11 @@ function calculateCell(row, column){
 
     for (var i = fromRowIndex; i <= toRowIndex; i++){
         for (var j = fromColIndex; j <= toColIndex; j++){
-            // make sure we have a number for addition
             if (isFloat(tblArray[i][j]))
                 sumTotal += parseFloat(tblArray[i][j]);
         }
     }
 
-    // we now have the total... insert into spreadsheet cell
-    // ... get the cell id
     var cellID = (row + 1) + "_" + (column + 1);
     var ref = document.getElementById(cellID)
     ref.innerHTML = sumTotal;
